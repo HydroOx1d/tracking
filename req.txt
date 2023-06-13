@@ -1,0 +1,16 @@
+- lists/map screen
+-- filter transport lists and confirm (Cargo, passenger, special transport)
+-- lists element (transport name, driver name, transport category)
+-- after click element, switch to transport screen
+-- checkbox for switching between map and lists
+
+- transport screen
+-- A map with the driver's location
+-- transport category
+-- driver name
+-- driver contact
+-- call button (open contact app with driver number)
+-- message button (open whatsapp with message (Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе))
+
+- settings screen
+-- switch languages (from rus to eng)
