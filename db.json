@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.582748
+    },
+    "category": "passenger",
+    "driverName": "Oleg",
+    "driverContact": "92149124912"
+  },
+  {
+    "id": 2,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.592748
+    },
+    "category": "cargo",
+    "driverName": "Vitalik",
+    "driverContact": "42212332922"
+  },
+  {
+    "id": 3,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.562748
+    },
+    "category": "special",
+    "driverName": "Artem",
+    "driverContact": "53853838522"
+  }
+]

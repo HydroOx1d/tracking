@@ -1,10 +1,11 @@
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
+import Screens from './screens';
 
 export default function App() {
   return (
-    <View>
-      <Text>Open up App.js to start working on your app!!!</Text>
-      <StatusBar  />
-    </View>
+      <>
+        <Screens />
+        <StatusBar/>
+      </>
   );
 }

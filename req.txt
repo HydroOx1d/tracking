@@ -1,6 +1,6 @@
 - lists/map screen
 -- filter transport lists and confirm (Cargo, passenger, special transport)
--- lists element (transport name, driver name, transport category)
+-- lists element (transport id, driver name, transport category)
 -- after click element, switch to transport screen
 -- checkbox for switching between map and lists
 
