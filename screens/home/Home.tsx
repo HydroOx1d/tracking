@@ -46,7 +46,9 @@ const Home: React.FC<NativeStackScreenProps<StackParam, "Home">> = ({
         />
         <Tab.Screen
           name="Map"
-          component={Map}
+          children={() => (
+            <Map onNavigateToTransportDetail={onNavigateToTransportDetail} />
+          )}
           options={{
             tabBarIcon: ({ size }) => {
               return (

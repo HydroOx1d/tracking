@@ -1,9 +1,17 @@
 import { View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import cars from '../../db.json'
+import data from '../../db.json'
 import getCarImage from "../../helpers/getCarImage";
+import React from "react";
+import { Transport } from "../../types";
 
-const Map = () => {
+type Props = {
+  onNavigateToTransportDetail: (transport: Transport) => void
+}
+
+const Map: React.FC<Props> = ({ onNavigateToTransportDetail }) => {
+  const [cars, setCars] = React.useState<Array<Transport>>(data)
+
   return (
     <View>
       <MapView
@@ -25,6 +33,7 @@ const Map = () => {
                 longitude: car.location.longitude,
               }}
               image={getCarImage(car.category)}
+              onPress={() => onNavigateToTransportDetail({ ...car })}
             />
           );
         })}
