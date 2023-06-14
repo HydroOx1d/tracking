@@ -1,9 +1,10 @@
 export type Transport = {
-  category: 'cargo' | 'passenger' | 'spec'
+  id: number,
+  category: string
   driverName: string,
   driverContact: string,
   location: {
-    lat: number
-    lon: number
+    latitude: number
+    longitude: number
   }
 }

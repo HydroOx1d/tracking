@@ -4,17 +4,24 @@ import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import Lists from './Lists'
 import Map from './Map'
+import { RootStackParamList } from '..'
+import { Transport } from '../../types'
 
-const Tab = createBottomTabNavigator()
 
-type Props = {
-  Home: undefined;
-  Lists: undefined
-  Map: undefined
+type StackParam = RootStackParamList & {
+  Lists: undefined;
+  Map: undefined;
 };
 
+const Tab = createBottomTabNavigator<StackParam>();
 
-const Home: React.FC<NativeStackScreenProps<Props, "Home">> = () => {
+const Home: React.FC<NativeStackScreenProps<StackParam, "Home">> = ({
+  navigation,
+}) => {
+  const onNavigateToTransportDetail = (transport: Transport) => {
+    navigation.navigate("Transport", {...transport});
+  };
+
   return (
     <View style={styles.wrapper}>
       <Tab.Navigator
@@ -23,7 +30,9 @@ const Home: React.FC<NativeStackScreenProps<Props, "Home">> = () => {
       >
         <Tab.Screen
           name="Lists"
-          component={Lists}
+          children={() => (
+            <Lists onNavigateToTransportDetail={onNavigateToTransportDetail} />
+          )}
           options={{
             tabBarIcon: ({ size }) => {
               return (
@@ -52,7 +61,7 @@ const Home: React.FC<NativeStackScreenProps<Props, "Home">> = () => {
       </Tab.Navigator>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {

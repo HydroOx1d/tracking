@@ -1,20 +1,7 @@
 import { View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import cars from '../../db.json'
-
-const getCarTypeImage = (type: string): any => {
-  switch(type) {
-    case "passenger": {
-      return require("../../assets/passenger.png");
-    }
-    case "cargo": {
-      return require("../../assets/cargo.png");
-    }
-    case "special": {
-      return require("../../assets/special.png");
-    }
-  }
-}
+import getCarImage from "../../helpers/getCarImage";
 
 const Map = () => {
   return (
@@ -37,7 +24,7 @@ const Map = () => {
                 latitude: car.location.latitude,
                 longitude: car.location.longitude,
               }}
-              image={getCarTypeImage(car.category)}
+              image={getCarImage(car.category)}
             />
           );
         })}
