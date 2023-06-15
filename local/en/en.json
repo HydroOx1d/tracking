@@ -1,0 +1,17 @@
+{
+  "category": "Category",
+  "transport": "Transport",
+  "driverName": "Driver name",
+  "transportCategory": "Transport category",
+  "phoneNumber": "Phone number",
+  "call": "call",
+  "message": "message",
+  "passenger": "Passenger",
+  "cargo": "Cargo",
+  "special": "Special",
+  "settings": "Settings",
+  "switchLang": "Switch language",
+  "english": "English",
+  "russian": "Russian",
+  "messageText": "Good afternoon, please tell me what order number you are currently working on"
+}

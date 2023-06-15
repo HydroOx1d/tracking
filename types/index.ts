@@ -1,7 +1,10 @@
 export type Transport = {
   id: number,
   category: string
-  driverName: string,
+  driverName: {
+    ru: string,
+    en: string
+  },
   driverContact: string,
   location: {
     latitude: number

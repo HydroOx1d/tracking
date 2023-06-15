@@ -2,12 +2,13 @@ import React from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { CarsCategory, Transport } from '../../types'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RootStackParamList } from '..'
 import SelectDropdown from 'react-native-select-dropdown'
 import Lists from './Lists'
 import Map from './Map'
 import data from '../../db.json'
+import { useTranslation } from 'react-i18next'
 
 export type HomeTabProps = {
   onNavigateToTransportDetail: (transport: Transport) => void;
@@ -24,17 +25,19 @@ const Tab = createBottomTabNavigator<TabParam>();
 const Home: React.FC<NativeStackScreenProps<TabParam, "Home">> = ({
   navigation,
 }) => {
+  const {t, i18n} = useTranslation()
+
   const carsCategory: Array<CarsCategory> = [
     {
-      name: "Пассажирский",
+      name: t("passenger"),
       type: "passenger",
     },
     {
-      name: "Грузовой",
+      name: t("cargo"),
       type: "cargo",
     },
     {
-      name: "Специальный",
+      name: t("special"),
       type: "special",
     },
   ];
@@ -67,14 +70,19 @@ const Home: React.FC<NativeStackScreenProps<TabParam, "Home">> = ({
 
   return (
     <View style={styles.wrapper}>
+      <View style={{ marginBottom: 30 }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+          <Image source={require("../../assets/settings-2-line.png")} />
+        </TouchableOpacity>
+      </View>
       <View style={{ marginBottom: 20 }}>
         <SelectDropdown
           data={carsCategory}
           onSelect={(item: CarsCategory) => onSelectCategory(item)}
           buttonStyle={{ borderWidth: 1 }}
-          defaultButtonText='Категория'
+          defaultButtonText={t("category") || "Категория"}
           rowTextForSelection={(item: CarsCategory) => item.name}
-          buttonTextAfterSelection={(item: CarsCategory) => item.name}
+          buttonTextAfterSelection={(item: CarsCategory) => t(item.type)}
         />
       </View>
       <Tab.Navigator

@@ -1,9 +1,12 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { HomeTabProps } from "./Home";
+import { useTranslation } from "react-i18next";
 
 
 const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) => {
+  const {t, i18n} = useTranslation()
+  const codeLang = i18n.language
 
   return (
     <View>
@@ -25,7 +28,7 @@ const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) =>
                   <Text
                     style={{ fontSize: 18, marginRight: 10, color: "#222222" }}
                   >
-                    ТС:
+                    {t("transport")}:
                   </Text>
                   <Text style={{ fontSize: 18, color: "#00aaf8" }}>
                     #{item.id}
@@ -41,10 +44,10 @@ const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) =>
                   <Text
                     style={{ fontSize: 18, marginRight: 10, color: "#222222" }}
                   >
-                    Имя водителя:
+                    {t("driverName")}:
                   </Text>
                   <Text style={{ fontSize: 18, color: "#00aaf8" }}>
-                    {item.driverName}
+                    {item.driverName[codeLang as keyof typeof item.driverName]}
                   </Text>
                 </View>
                 <View
@@ -57,10 +60,10 @@ const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) =>
                   <Text
                     style={{ fontSize: 18, marginRight: 10, color: "#222222" }}
                   >
-                    Категория ТС:
+                    {t("transportCategory")}:
                   </Text>
                   <Text style={{ fontSize: 18, color: "#00aaf8" }}>
-                    {item.category}
+                    {t(item.category)}
                   </Text>
                 </View>
               </View>

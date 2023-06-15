@@ -4,14 +4,18 @@ import { Button, StyleSheet, Text, View, Linking, Alert } from "react-native";
 import { RootStackParamList } from "./index";
 import MapView, { Marker } from "react-native-maps";
 import getCarImage from "../helpers/getCarImage";
+import { useTranslation } from "react-i18next";
 
 const TransportDetail: React.FC<
   NativeStackScreenProps<RootStackParamList, "Transport">
 > = ({ route, navigation }) => {
   const transport = route.params;
 
+  const {t, i18n} = useTranslation()
+  const codeLang = i18n.language;
+
   React.useEffect(() => {
-    navigation.setOptions({ title: `ТС: ${transport.id}` });
+    navigation.setOptions({ title: `${t('transport')}: ${transport.id}` });
   }, []);
 
   const call = async () => {
@@ -23,7 +27,7 @@ const TransportDetail: React.FC<
   };
 
   const message = async () => {
-    const text = "Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе";
+    const text = t('messageText');
     
     try {
       await Linking.openURL(
@@ -37,28 +41,36 @@ const TransportDetail: React.FC<
   return (
     <View style={style.wrapper}>
       <View style={style.title}>
-        <Text style={style.titleText}>ТС: #{transport.id}</Text>
+        <Text style={style.titleText}>
+          {t("transport")}: #{transport.id}
+        </Text>
       </View>
       <View style={{ marginBottom: 20 }}>
         <View style={style.infoItem}>
-          <Text style={style.infoItemText}>Номер телефона</Text>
+          <Text style={style.infoItemText}>{t("phoneNumber")}</Text>
           <Text style={style.infoItemText}>{transport.driverContact}</Text>
         </View>
         <View style={style.infoItem}>
-          <Text style={style.infoItemText}>Имя водителя</Text>
-          <Text style={style.infoItemText}>{transport.driverName}</Text>
+          <Text style={style.infoItemText}>{t("driverName")}</Text>
+          <Text style={style.infoItemText}>
+            {
+              transport.driverName[
+                codeLang as keyof typeof transport.driverName
+              ]
+            }
+          </Text>
         </View>
         <View style={style.infoItem}>
-          <Text style={style.infoItemText}>Категория ТС:</Text>
-          <Text style={style.infoItemText}>{transport.category}</Text>
+          <Text style={style.infoItemText}>{t("transportCategory")}:</Text>
+          <Text style={style.infoItemText}>{t(transport.category)}</Text>
         </View>
       </View>
       <View style={{ flexDirection: "row", width: "100%", marginBottom: 20 }}>
         <View style={{ marginRight: 10, flex: 1 }}>
-          <Button title="Позвонить" onPress={call} />
+          <Button title={t("call")} onPress={call} />
         </View>
         <View style={{ flex: 1 }}>
-          <Button title="Написать" color={"#25D366"} onPress={message} />
+          <Button title={t("message")} color={"#25D366"} onPress={message} />
         </View>
       </View>
       <MapView

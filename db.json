@@ -6,8 +6,11 @@
       "longitude": 74.582748
     },
     "category": "passenger",
-    "driverName": "Oleg",
-    "driverContact": "92149124912"
+    "driverName": {
+      "ru": "Олег",
+      "en": "Oleg"
+    },
+    "driverContact": "+996704041004"
   },
   {
     "id": 2,
@@ -16,8 +19,11 @@
       "longitude": 74.592748
     },
     "category": "cargo",
-    "driverName": "Vitalik",
-    "driverContact": "42212332922"
+    "driverName": {
+      "ru": "Виталик",
+      "en": "Vitalik"
+    },
+    "driverContact": "+996704041004"
   },
   {
     "id": 3,
@@ -26,7 +32,10 @@
       "longitude": 74.562748
     },
     "category": "special",
-    "driverName": "Artem",
-    "driverContact": "53853838522"
+    "driverName": {
+      "ru": "Артём",
+      "en": "Artem"
+    },
+    "driverContact": "+996704041004"
   }
 ]
