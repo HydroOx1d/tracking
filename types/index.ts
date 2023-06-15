@@ -8,3 +8,5 @@ export type Transport = {
     longitude: number
   }
 }
+
+export type CarsCategory = { name: string; type: string };

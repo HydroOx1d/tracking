@@ -1,16 +1,10 @@
+import React from "react";
 import { View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import data from '../../db.json'
 import getCarImage from "../../helpers/getCarImage";
-import React from "react";
-import { Transport } from "../../types";
+import { HomeTabProps } from "./Home";
 
-type Props = {
-  onNavigateToTransportDetail: (transport: Transport) => void
-}
-
-const Map: React.FC<Props> = ({ onNavigateToTransportDetail }) => {
-  const [cars, setCars] = React.useState<Array<Transport>>(data)
+const Map: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) => {
 
   return (
     <View>
@@ -24,7 +18,7 @@ const Map: React.FC<Props> = ({ onNavigateToTransportDetail }) => {
           longitudeDelta: 1,
         }}
       >
-        {cars.map(car => {
+        {cars.map((car) => {
           return (
             <Marker
               key={car.id}

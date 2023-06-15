@@ -1,21 +1,19 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import data from '../../db.json'
-import { Transport } from "../../types";
 import React from "react";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { HomeTabProps } from "./Home";
 
-type Props = {
-  onNavigateToTransportDetail: (transport: Transport) => void
-}
 
-const Lists: React.FC<Props> = ({ onNavigateToTransportDetail }) => {
-  const [cars, setCars] = React.useState<Array<Transport>>(data)
+const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) => {
+
   return (
     <View>
       <FlatList
         data={cars}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => onNavigateToTransportDetail({...item})}>
+            <TouchableOpacity
+              onPress={() => onNavigateToTransportDetail({ ...item })}
+            >
               <View style={styles.item}>
                 <View
                   style={{
