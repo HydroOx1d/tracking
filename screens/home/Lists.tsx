@@ -8,6 +8,9 @@ const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) =>
   const {t, i18n} = useTranslation()
   const codeLang = i18n.language
 
+  // для проверки существоя такой категории в db для корректного отображения "Категория ТС"
+  const categories = ['special', 'cargo', 'passenger']
+
   return (
     <View>
       <FlatList
@@ -63,7 +66,9 @@ const Lists: React.FC<HomeTabProps> = ({ onNavigateToTransportDetail, cars }) =>
                     {t("transportCategory")}:
                   </Text>
                   <Text style={{ fontSize: 18, color: "#00aaf8" }}>
-                    {t(item.category)}
+                    {categories.includes(item.category)
+                      ? t(item.category)
+                      : t("unknown")}
                   </Text>
                 </View>
               </View>

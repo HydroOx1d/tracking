@@ -38,6 +38,8 @@ const TransportDetail: React.FC<
     }
   };
 
+  const categories = ['special', 'cargo', 'passenger']
+
   return (
     <View style={style.wrapper}>
       <View style={style.title}>
@@ -62,7 +64,7 @@ const TransportDetail: React.FC<
         </View>
         <View style={style.infoItem}>
           <Text style={style.infoItemText}>{t("transportCategory")}:</Text>
-          <Text style={style.infoItemText}>{t(transport.category)}</Text>
+          <Text style={style.infoItemText}>{categories.includes(transport.category) ? t(transport.category) : t('unknown')}</Text>
         </View>
       </View>
       <View style={{ flexDirection: "row", width: "100%", marginBottom: 20 }}>

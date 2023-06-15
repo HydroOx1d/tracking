@@ -13,5 +13,6 @@
   "switchLang": "Switch language",
   "english": "English",
   "russian": "Russian",
-  "messageText": "Good afternoon, please tell me what order number you are currently working on"
+  "messageText": "Good afternoon, please tell me what order number you are currently working on",
+  "unknown": "Unknown"
 }

@@ -1,6 +1,6 @@
 export type Transport = {
   id: number,
-  category: string
+  category: 'cargo' | 'special' | 'passenger'
   driverName: {
     ru: string,
     en: string

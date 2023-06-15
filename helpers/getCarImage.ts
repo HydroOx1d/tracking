@@ -10,7 +10,7 @@ const getCarImage = (type: string): any => {
       return require("../assets/special.png");
     }
     default: {
-      return 'Not found'
+      return require('../assets/free-icon-unknown-3179157.png')
     }
   }
 };
