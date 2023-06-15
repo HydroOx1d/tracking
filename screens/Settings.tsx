@@ -1,40 +1,45 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import React from 'react'
-import { RootStackParamList } from '.'
-import { StyleSheet, Text, View } from 'react-native'
-import { useTranslation } from 'react-i18next'
-import SelectDropdown from 'react-native-select-dropdown'
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from "react";
+import { RootStackParamList } from ".";
+import { StyleSheet, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import SelectDropdown from "react-native-select-dropdown";
 
 type LangType = {
-  lang: string,
-  type: 'en' | 'ru'
-}
+  lang: string;
+  type: "en" | "ru";
+};
 
-const Settings: React.FC<NativeStackScreenProps<RootStackParamList, "Settings">> = ({navigation}) => {
-  const { t, i18n} = useTranslation()
+const Settings: React.FC<
+  NativeStackScreenProps<RootStackParamList, "Settings">
+> = ({ navigation }) => {
+  const { t, i18n } = useTranslation();
 
   const languages: Array<LangType> = [
     {
-      lang: t('english'),
-      type: 'en'
+      lang: t("english"),
+      type: "en",
     },
     {
-      lang: t('russian'),
-      type: 'ru'
-    }
-  ]
+      lang: t("russian"),
+      type: "ru",
+    },
+  ];
 
-  const currentLang = languages.find(lang => lang.type == i18n.language)
+  // Определяем текущий язык
+  const currentLang = languages.find((lang) => lang.type == i18n.language);
 
+  // При изменения язык, меняем так же title
   React.useEffect(() => {
     navigation.setOptions({
-      title: t('settings') || 'Settings'
-    })
-  }, [i18n.language])
+      title: t("settings") || "Settings",
+    });
+  }, [i18n.language]);
 
+  // функция изменения языка
   const onChangeLanguage = (lang: LangType) => {
-    i18n.changeLanguage(lang?.type)
-  }
+    i18n.changeLanguage(lang?.type);
+  };
 
   return (
     <View style={styles.wrapper}>
@@ -51,17 +56,17 @@ const Settings: React.FC<NativeStackScreenProps<RootStackParamList, "Settings">>
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 20
+    padding: 20,
   },
   title: {
     fontSize: 20,
     marginBottom: 20,
-    fontWeight: 'bold'
-  }
-})
+    fontWeight: "bold",
+  },
+});
 
-export default Settings
+export default Settings;

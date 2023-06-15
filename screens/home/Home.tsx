@@ -10,23 +10,28 @@ import Map from './Map'
 import data from '../../db.json'
 import { useTranslation } from 'react-i18next'
 
+// Пропсы для Map и Lists
 export type HomeTabProps = {
   onNavigateToTransportDetail: (transport: Transport) => void;
   cars: Array<Transport>;
 };
 
+// Страницы Map и Lists (undefined означает, что страницы ничего не принимают в качестве параметров)
 type TabParam = RootStackParamList & {
   Lists: undefined;
   Map: undefined;
 };
 
+// Создаём собственно сами страницы
 const Tab = createBottomTabNavigator<TabParam>();
 
 const Home: React.FC<NativeStackScreenProps<TabParam, "Home">> = ({
   navigation,
 }) => {
-  const {t, i18n} = useTranslation()
+  const {t} = useTranslation()
 
+
+  // Категория транспортных средств для рендера в SelectDropdown компонент
   const carsCategory: Array<CarsCategory> = [
     {
       name: t("passenger"),
@@ -43,14 +48,14 @@ const Home: React.FC<NativeStackScreenProps<TabParam, "Home">> = ({
   ];
 
   // здесь хранится данные о транспортах
-  const [cars, setCars] = React.useState<Array<Transport>>(data)
+  const [cars, setCars] = React.useState(data as Array<Transport>);
   // для хранения текущей категории
   const [currentCategory, setCurrentCategory] = React.useState<CarsCategory>()
   // Этот ref нужен для сохранения ссылки на массив, что бы по нему фильтровать state (cars), т.е категория транспорта
   const carsRef = React.useRef(cars)
 
   React.useEffect(() => {
-    // Если категория уже выбрана, то начинаем фильтрацию
+    // Если категория уже выбрана, то начинаем фильтрацию 
     if(currentCategory) {
       setCars(() => {
         return carsRef.current.filter((car) => car.category === currentCategory?.type);
