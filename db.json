@@ -37,5 +37,96 @@
       "en": "Artem"
     },
     "driverContact": "+996704041004"
+  },
+  {
+    "id": 4,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.572748
+    },
+    "category": "passenger",
+    "driverName": {
+      "ru": "Дмитрий",
+      "en": "Dmitriy"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 5,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.542748
+    },
+    "category": "cargo",
+    "driverName": {
+      "ru": "Иван",
+      "en": "Ivan"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 6,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.552748
+    },
+    "category": "special",
+    "driverName": {
+      "ru": "Алексей",
+      "en": "Alexey"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 7,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.532748
+    },
+    "category": "passenger",
+    "driverName": {
+      "ru": "Сергей",
+      "en": "Sergey"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 8,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.512748
+    },
+    "category": "cargo",
+    "driverName": {
+      "ru": "Максим",
+      "en": "Maxim"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 9,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.522748
+    },
+    "category": "special",
+    "driverName": {
+      "ru": "Павел",
+      "en": "Pavel"
+    },
+    "driverContact": "+996704041004"
+  },
+  {
+    "id": 10,
+    "location": {
+      "latitude": 42.882004,
+      "longitude": 74.502748
+    },
+    "category": "passenger",
+    "driverName": {
+      "ru": "Андрей",
+      "en": "Andrey"
+    },
+    "driverContact": "+996704041004"
   }
 ]
